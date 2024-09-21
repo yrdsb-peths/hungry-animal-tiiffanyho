@@ -12,6 +12,8 @@ public class Bread extends Actor
      * Act - do whatever the Bread wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private int speed = 1;
+    
     public void act()
     {
         //Apple falls downwards.
@@ -26,5 +28,10 @@ public class Bread extends Actor
             world.gameOver();
             world.removeObject(this);
         }
+    }
+    
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }
