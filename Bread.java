@@ -18,7 +18,7 @@ public class Bread extends Actor
     {
         //Apple falls downwards.
         int x = getX();
-        int y = getY() + 2;
+        int y = getY() + speed;
         setLocation(x, y);
         
         //Remove apple and draw game over when apple gets to bottom
