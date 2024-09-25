@@ -14,22 +14,11 @@ public class Bread extends Food
     
     public void act()
     {
-        //Apple falls downwards.
-        int x = getX();
-        int y = getY() + speed;
-        setLocation(x, y);
-        
-        //Remove apple and draw game over when apple gets to bottom
-        MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
-        {
-            world.gameOver();
-            world.removeObject(this);
-        }
+        down(speed);
     }
     
-    public void setSpeed(int spd)
+    public void setSpeed(int level)
     {
-        speed = spd;
+        this.speed = level + 2;
     }
 }

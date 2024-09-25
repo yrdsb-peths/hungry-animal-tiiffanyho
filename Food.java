@@ -6,4 +6,16 @@ public abstract class Food extends Actor {
     public Food(int value) {
         this.value = value;
     }
+    
+    public void down(int speed) 
+    {
+        setLocation(getX(), getY() + 4);
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
+    }
 }
