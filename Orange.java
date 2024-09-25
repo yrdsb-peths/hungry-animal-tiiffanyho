@@ -16,6 +16,14 @@ public class Orange extends Food
     public void act()
     {
         setLocation(getX(), getY() + 4);
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
+    
     
 }
