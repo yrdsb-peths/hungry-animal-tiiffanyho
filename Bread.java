@@ -1,18 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Food
- * 
- * @author Tiffany 
- * @version Sep 2024
- */
-public class Bread extends Actor
+public class Bread extends Food
 {
     /**
      * Act - do whatever the Bread wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int speed = 1;
+    
+    public Bread(){
+        super(1);
+    }
     
     public void act()
     {

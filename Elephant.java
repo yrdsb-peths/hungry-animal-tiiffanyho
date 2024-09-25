@@ -78,7 +78,7 @@ public class Elephant extends Actor
             move(2);
             facing = "right";
         }
-        eat();
+        checkFoodCollision();
         
         //Animate the elephant
         animateElephant();
@@ -89,15 +89,17 @@ public class Elephant extends Actor
     /**
      * Eat the bread and spawn new bread once eaten.
      */
-    public void eat()
+    public void checkFoodCollision()
     {
-        if(isTouching(Bread.class))
+        Actor actor = getOneIntersectingObject(Food.class);
+        if(actor !=null)
         {
-            removeTouching(Bread.class);
+            Food food = (Food) actor;
             MyWorld world = (MyWorld) getWorld();
-            world.createBread();
-            world.increaseScore();
-            eatingSound.play();
+            
+            world.increaseScore(food.value);
+            getWorld().removeObject(food);
+            world.createFood();
         }
     }
 }

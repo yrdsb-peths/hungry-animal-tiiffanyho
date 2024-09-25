@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    public int score = 0;
+    public static int score = 0;
     Label scoreLabel;
     int level = 1;
     
@@ -29,7 +29,7 @@ public class MyWorld extends World
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
         
-        createBread();
+        createFood();
     }
     
     /**
@@ -56,12 +56,16 @@ public class MyWorld extends World
         }
     }
     
-    public void createBread()
+    public void createFood()
     {
-        Bread bread = new Bread();
-        bread.setSpeed(level);
+        int rand = Greenfoot.getRandomNumber(2);
+        Food food;
+        if(rand == 0) {
+            food = new Bread();
+        } else {
+            food = new Orange();
+        }
         int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
-        addObject(bread, x, y);
+        addObject(food, x, 0);
     }
 }
