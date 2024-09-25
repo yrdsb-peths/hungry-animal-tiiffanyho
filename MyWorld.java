@@ -45,9 +45,9 @@ public class MyWorld extends World
     /**
      * Increase score
      */
-    public void increaseScore()
+    public void increaseScore(int value)
     {
-        score++;
+        score+=value;
         scoreLabel.setValue(score);
         
         if(score % 5 == 0)
